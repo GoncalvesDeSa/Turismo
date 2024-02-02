@@ -1,0 +1,26 @@
+﻿@page
+@model Turismo.Pages.ComodAloj.IndexModel
+@{
+}
+
+
+<br>
+<h2>Inseir Comodidade no Alojamento</h2>
+<a class='btn btn-primary btn-sm' href='/ComodAloj/Create'>Inserir Comodidade</a>
+<table class="table">
+	<thead>
+	<tr>
+		<th>ID Comodidade</th>
+		<th>ID Alojamento</th>
+	</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.ListaComodAloj)
+		{
+			<tr>
+				<td>@item.Comodid</td>
+				<td>@item.Alojid</td>
+			</tr>
+		}
+	</tbody>
+</table>

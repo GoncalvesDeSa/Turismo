@@ -1,0 +1,40 @@
+﻿@page
+@model Turismo.Pages.Alojamentos.IndexModel
+@{
+}
+
+
+<br>
+<h2>Alojamentos</h2>
+<a class='btn btn-primary btn-sm' href='/Alojamentos/Create'>Novo Alojamento</a>
+<a class='btn btn-primary btn-sm' href='/Alojamentos/FazerStored'>Stored Procedure</a>
+<a class='btn btn-primary btn-sm' href='/Alojamentos/StoredProcedure'>Mostrar Stored Procedure</a>
+<table class="table">
+	<thead>
+	<tr>
+		<th>ID</th>
+		<th>Nome</th>
+		<th>Morada</th>
+		<th>CP</th>
+		<th>Localidade</th>
+		<th>TipoAlojamento</th>
+	</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.ListaAlojamento)
+		{
+		<tr>
+			<td>@item.Id</td>
+			<td>@item.Nome</td>
+			<td>@item.Morada</td>
+			<td>@item.CP</td>
+			<td>@item.Localidade</td>
+			<td>@item.TipoAlojamento</td>
+		<td>
+			<a class='btn btn-primary btn-sm' href='/Alojamentos/Edit?id=@item.Id'>Edit</a>
+			<a class='btn btn-danger btn-sm' href='/Alojamentos/Delete?id=@item.Id'>Delete</a>
+		</td>
+		</tr>
+		}
+	</tbody>
+</table>

@@ -1,0 +1,29 @@
+﻿@page
+@using System.Data.SqlClient
+
+
+
+@{
+	try
+	{
+
+		string connectionString = "Data Source=DESKTOP-1HH2R8G\\AULAS;Initial Catalog=Turismo;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+		using (SqlConnection connection = new SqlConnection(connectionString))
+		{
+			connection.Open();
+
+			String sql = "create procedure SelectTodosAlojamentos2 as begin select Alojamento.Alojamentoid, Alojamento.nome, morada, CP, Comodidade.nome from Alojamento join Comodidade_Alojamento on Alojamento.Alojamentoid = Comodidade_Alojamento.Alojamentoid join Comodidade on Comodidade.Comodidadeid = Comodidade_Alojamento.Comodidadeid; end;";
+			using (SqlCommand command = new SqlCommand(sql, connection))
+			{
+				command.ExecuteNonQuery();
+
+			}
+		}
+
+	}
+	catch (Exception ex)
+	{
+	}
+	Response.Redirect("/Alojamentos/Index");
+
+}

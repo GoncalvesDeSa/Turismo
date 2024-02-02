@@ -1,0 +1,31 @@
+﻿@page
+@model Turismo.Pages.Alojamentos.StoredProcedureModel
+@{
+}
+
+<br>
+<h2>Stored Procedure</h2>
+<table class="table">
+	<thead>
+	<tr>
+		<th>ID</th>
+		<th>Nome</th>
+		<th>Morada</th>
+		<th>CP</th>
+		<th>Comodidade</th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var item in Model.ListaStored)
+	{
+		<tr>
+			<td>@item.Id</td>
+			<td>@item.Nome</td>
+			<td>@item.Morada</td>
+			<td>@item.CP</td>
+			<td>@item.Comodidade</td>
+			<td></td>
+		</tr>
+	}
+	</tbody>
+</table>

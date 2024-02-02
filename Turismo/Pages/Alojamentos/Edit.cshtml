@@ -1,0 +1,67 @@
+﻿@page
+@model Turismo.Pages.Alojamentos.EditModel
+@{
+}
+
+<br>
+<h2>Editar Alojamento</h2>
+
+@if (Model.erro.Length > 0)
+{
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+		<strong>@Model.erro</strong>
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+}
+
+
+<form method="POST">
+	<input type ="hidden" name ="Id" value="@Model.alojamentoInfo.Id">
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Nome</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="Nome" value="@Model.alojamentoInfo.Nome">
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Morada</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="Morada" value="@Model.alojamentoInfo.Morada"/></>
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Código Postal</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="CP" value="@Model.alojamentoInfo.CP"/></>
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Tipo de Alojamento (1 - Apartamento 2 - Vivenda 3- Glamping)</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="TipoAlojamento" value="@Model.alojamentoInfo.TipoAlojamento"/></>
+		</div>
+	</div>
+
+	@if (Model.sucesso.Length > 0)
+	{
+		<div class="row mb-3">
+			<div class="col-sm-9">
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<strong>@Model.sucesso</strong>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			</div>
+		</div>
+	}
+
+
+	<div class="row mb-3">
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<button type="submit" class="btn btn-primary">Submeter</button>
+		</div>
+		<div class="col-sm-3 d-grid">
+			<a class="btn btn-outline-primary" href="/" role="button">Cancelar</a>
+		</div>
+	</div>
+
+</form>
